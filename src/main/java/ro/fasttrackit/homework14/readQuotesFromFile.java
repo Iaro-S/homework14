@@ -14,6 +14,7 @@ public class readQuotesFromFile {
         ArrayList<Quote> quotes = new ArrayList<>();
         BufferedReader fileReader = new BufferedReader(new FileReader("files/quotes.txt"));
         String line;
+        int index = 0;
         while ((line = fileReader.readLine()) != null) {
             quotes.add(readQuotes(line));
         }
@@ -22,9 +23,9 @@ public class readQuotesFromFile {
 
     private static Quote readQuotes(String quotesInfo) {
         String[] quotesData = quotesInfo.split("~");
-        int id = 0;
         String author = quotesData[0];
         String quote = quotesData[1];
+        int id = 1;
         return new Quote(id, author, quote, false);
     }
 }
