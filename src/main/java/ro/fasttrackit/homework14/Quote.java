@@ -8,7 +8,7 @@ public class Quote {
     private final String quote;
     private boolean favourite;
 
-    public Quote(int id, String author, String quote, boolean favourite) {
+    public Quote(int id, String author, String quote) {
         this.id = id;
         this.author = author;
         this.quote = quote;

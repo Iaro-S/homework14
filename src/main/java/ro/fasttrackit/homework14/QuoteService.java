@@ -19,6 +19,16 @@ public class QuoteService {
         return result;
     }
 
+    public List<String> getQuotesForAuthor(String author) {
+        List<String> result = new ArrayList<>();
+        for (Quote quote : quoteList) {
+            if (quote.getAuthor().equals(author)) {
+                result.add(quote.getQuote());
+            }
+        }
+        return result;
+    }
+
     public List<String> getAuthors() {
         List<String> result = new ArrayList<>();
         for (Quote quote : quoteList) {
@@ -28,7 +38,11 @@ public class QuoteService {
     }
 
     public void setFavourite(int id) {
-        setFavourite(id);
+        for (Quote quote : quoteList) {
+            if (quote.getId() == id) {
+                quote.setFavourite(true);
+            }
+        }
     }
 
     public List<Quote> getFavourites() {

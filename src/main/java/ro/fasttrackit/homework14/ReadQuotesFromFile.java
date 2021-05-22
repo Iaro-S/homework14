@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class readQuotesFromFile {
+public class ReadQuotesFromFile {
+
     public static void main(String[] args) throws Exception {
         ArrayList<Quote> quotes = readFromFile();
         quotes.forEach(System.out::println);
@@ -14,18 +15,17 @@ public class readQuotesFromFile {
         ArrayList<Quote> quotes = new ArrayList<>();
         BufferedReader fileReader = new BufferedReader(new FileReader("files/quotes.txt"));
         String line;
-        int index = 0;
+        int id = 1;
         while ((line = fileReader.readLine()) != null) {
-            quotes.add(readQuotes(line));
+            quotes.add(readQuotes(id++, line));
         }
         return quotes;
     }
 
-    private static Quote readQuotes(String quotesInfo) {
+    private static Quote readQuotes(int id, String quotesInfo) {
         String[] quotesData = quotesInfo.split("~");
         String author = quotesData[0];
         String quote = quotesData[1];
-        int id = 1;
-        return new Quote(id, author, quote, false);
+        return new Quote(id, author, quote);
     }
 }
