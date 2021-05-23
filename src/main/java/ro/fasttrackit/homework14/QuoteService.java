@@ -20,11 +20,11 @@ public class QuoteService {
         return result;
     }
 
-    public List<String> getQuotesForAuthor(String author) {
-        List<String> result = new ArrayList<>();
+    public List<Quote> getQuotesForAuthor(String author) {
+        List<Quote> result = new ArrayList<>();
         for (Quote quote : quoteList) {
             if (quote.getAuthor().equals(author)) {
-                result.add(quote.getQuote());
+                result.add(quote);
             }
         }
         return result;
@@ -62,8 +62,7 @@ public class QuoteService {
         int randomId = random.nextInt(5421);
         for (Quote quote : quoteList) {
             if (randomId == quote.getId()) {
-                System.out.print(randomId + ": ");
-                result = quote.getQuote();
+                result = randomId + ": " + quote.getQuote();
             }
         }
         return result;

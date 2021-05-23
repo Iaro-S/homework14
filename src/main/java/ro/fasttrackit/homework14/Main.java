@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         QuoteService quoteList = new QuoteService(readFromFile());
         System.out.println(quoteList.getAllQuotes() + "\n");
-        System.out.println(quoteList.getQuotesForAuthor("Buddha") + "\n");
+        System.out.println(quoteList.getQuotesForAuthor("Buddha"));
         System.out.println(quoteList.getAuthors() + "\n");
         quoteList.setFavourite(5);
         quoteList.setFavourite(1754);
