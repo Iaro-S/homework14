@@ -2,6 +2,7 @@ package ro.fasttrackit.homework14;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class QuoteService {
     public List<Quote> quoteList;
@@ -50,6 +51,19 @@ public class QuoteService {
         for (Quote quote : quoteList) {
             if (quote.getFavourite()) {
                 result.add(quote);
+            }
+        }
+        return result;
+    }
+
+    public String getRandomQuote() {
+        String result = null;
+        Random random = new Random();
+        int randomId = random.nextInt(5421);
+        for (Quote quote : quoteList) {
+            if (randomId == quote.getId()) {
+                System.out.print(randomId + ": ");
+                result = quote.getQuote();
             }
         }
         return result;

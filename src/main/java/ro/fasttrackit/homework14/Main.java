@@ -12,6 +12,6 @@ public class Main {
         quoteList.setFavourite(1754);
         quoteList.setFavourite(3200);
         System.out.println(quoteList.getFavourites() + "\n");
-
+        System.out.println(quoteList.getRandomQuote());
     }
 }
