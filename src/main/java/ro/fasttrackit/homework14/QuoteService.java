@@ -1,8 +1,6 @@
 package ro.fasttrackit.homework14;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class QuoteService {
     public List<Quote> quoteList;
@@ -32,8 +30,8 @@ public class QuoteService {
         return result;
     }
 
-    public List<String> getAuthors() {
-        List<String> result = new ArrayList<>();
+    public Set<String> getAuthors() {
+        Set<String> result = new HashSet<>();
         for (Quote quote : quoteList) {
             result.add(quote.getAuthor());
         }
@@ -59,14 +57,8 @@ public class QuoteService {
     }
 
     public String getRandomQuote() {
-        String result = null;
         Random random = new Random();
-        int randomId = 1 + random.nextInt(5420);
-        for (Quote quote : quoteList) {
-            if (randomId == quote.getId()) {
-                result = randomId + ": " + quote.getQuote();
-            }
-        }
-        return result;
+        int randomId = 1 + random.nextInt(quoteList.size());
+        return quoteList.get(randomId).getQuote();
     }
 }
