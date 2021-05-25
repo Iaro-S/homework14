@@ -3,16 +3,17 @@ package ro.fasttrackit.homework14;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadQuotesFromFile {
 
     public static void main(String[] args) throws Exception {
-        ArrayList<Quote> quotes = readFromFile();
+        List<Quote> quotes = readFromFile();
         quotes.forEach(System.out::println);
     }
 
-    public static ArrayList<Quote> readFromFile() throws Exception {
-        ArrayList<Quote> quotes = new ArrayList<>();
+    public static List<Quote> readFromFile() throws Exception {
+        List<Quote> quotes = new ArrayList<>();
         BufferedReader fileReader = new BufferedReader(new FileReader("files/quotes.txt"));
         String line;
         int id = 1;
