@@ -61,7 +61,7 @@ public class QuoteService {
     public String getRandomQuote() {
         String result = null;
         Random random = new Random();
-        int randomId = random.nextInt(5421);
+        int randomId = 1 + random.nextInt(5420);
         for (Quote quote : quoteList) {
             if (randomId == quote.getId()) {
                 result = randomId + ": " + quote.getQuote();
