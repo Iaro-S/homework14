@@ -9,7 +9,9 @@ public class QuoteService {
 
     public QuoteService(List<Quote> quoteList) {
         this.quoteList = new ArrayList<>();
-        this.quoteList.addAll(quoteList);
+        if (quoteList != null) {
+            this.quoteList.addAll(quoteList);
+        }
     }
 
     public List<String> getAllQuotes() {
